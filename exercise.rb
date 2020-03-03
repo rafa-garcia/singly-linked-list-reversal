@@ -25,4 +25,16 @@
 
 LinkedNode = Struct.new(:value, :next, keyword_init: true)
 
-LinkedList = Struct.new(:head, keyword_init: true)
+LinkedList = Struct.new(:head, keyword_init: true) do
+  def print
+    output_ary   = []
+    current_node = head
+
+    until current_node.nil?
+      output_ary << current_node.value
+      current_node = current_node.next
+    end
+
+    p output_ary
+  end
+end

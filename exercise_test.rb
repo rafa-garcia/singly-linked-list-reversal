@@ -51,4 +51,10 @@ describe LinkedList do
       _(subject.head).must_be_instance_of LinkedNode
     end
   end
+
+  describe '#print' do
+    it 'outputs the values' do
+      expect { subject.print }.must_output "[1, 2, 3]\n"
+    end
+  end
 end
