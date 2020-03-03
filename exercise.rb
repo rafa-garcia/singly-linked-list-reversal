@@ -26,6 +26,20 @@
 LinkedNode = Struct.new(:value, :next, keyword_init: true)
 
 LinkedList = Struct.new(:head, keyword_init: true) do
+  def reverse
+    previous_node = nil
+    current_node  = head
+
+    until current_node.nil?
+      next_node         = current_node.next
+      current_node.next = previous_node
+      previous_node     = current_node
+      current_node      = next_node
+    end
+
+    self.head = previous_node
+  end
+
   def print
     output_ary   = []
     current_node = head
